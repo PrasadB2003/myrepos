@@ -1,0 +1,49 @@
+def is_valid_sudoku(board):
+    def is_valid_group(group):
+     
+        nums = [cell for cell in group if cell != '.']
+        return len(nums) == len(set(nums))
+    
+  
+    for row in board:
+        if not is_valid_group(row):
+            return False
+    
+   
+    for col in range(9):
+        if not is_valid_group([board[row][col] for row in range(9)]):
+            return False
+    
+
+    for box_row in range(0, 9, 3):
+        for box_col in range(0, 9, 3):
+            box = [board[row][col] 
+                   for row in range(box_row, box_row + 3) 
+                   for col in range(box_col, box_col + 3)]
+            if not is_valid_group(box):
+                return False
+    
+    return True
+
+
+def validate_sudoku_from_file(input_file, output_file):
+    try:
+      
+        with open(input_file, 'r') as file:
+            board = [line.strip().split() for line in file.readlines()]
+        
+   
+        is_valid = is_valid_sudoku(board)
+        
+       
+        with open(output_file, 'w') as file:
+            file.write("Valid Sudoku" if is_valid else "Invalid Sudoku")
+    except Exception as e:
+       
+        with open(output_file, 'w') as file:
+            file.write(f"Error: {str(e)}")
+
+
+input_file = "input.txt"
+output_file = "output.txt"
+validate_sudoku_from_file(input_file, output_file)
