@@ -3,103 +3,32 @@
 using namespace std;
 
 
-bool cnt(string st){
+void solve(vector<string> str, int n ){
 
-int onecnt = 0;
-int zerocnt =0 ;
+pair<int ,string>p1;
+   priority_queue<pair<int, string>, vector<pair<int, string>>
+for(auto i : str){
+str temp = "";
+int num ;
+for(auto j :i){
 
-
-for(auto i : st){
-
-if(i =='1'){
-
-    onecnt++;
-}
-
-else{
-
-
-    zerocnt++;
-}
-}
-
-return onecnt== zerocnt;
-
-
-
-
-
-}
-void cntSubstr(string &s, int inde , int n ,string temp){
-if(inde>=n){
-if(cnt(temp)){
-cout<<temp<<endl;
-
-}
-    return ;
-}
-
-
-
-temp.push_back(s[inde]);
-
-
-cntSubstr(s,inde+1, n, temp);
-
-temp.pop_back();
-
-
-cntSubstr(s,inde+1, n, temp);
-
-
-
-
-
-
-
-}
-
-
-
-void solve(string s){
-
-
-int n = s.length();
-for(int i = 0 ;i < n; i++){
-
-int onecnt = 0;
-int zerocnt =  0 ;
-
-
-
-
-    for(int j = i ;j <n ; j ++){
-
-
-if(s[j] == '1'){
-
-
-    onecnt ++;
+if(isalpha(j)){
+    temp+=j;
 }
 else{
-    zerocnt++;
+num = stoi(j);
+}
+
+}
+
+p1=make_pair(num ,temp);
+
+
+
 }
 
 
 
-
-if(zerocnt  == onecnt){
-
-
-
-
-
-    cout<<s.substr(i , j- i +1) <<endl;
-    
-    }
-
-    }
-}
 
 
 }
@@ -107,11 +36,12 @@ if(zerocnt  == onecnt){
 
 int main() {
 
+vector<string>str = {"is2", "a3","Th1is"}
 
-string s ="00110011";
 
 
-solve(s);
+
+solve(str);
 
 
 
