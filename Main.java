@@ -2,36 +2,37 @@ import java.util.*;
 
 class Main {
 
-public static int binarysearch(){
+    public static void BubblrSort(ArrayList<Integer>arr , int n ){
 
-
-
-
-
-    HashMap<String, Integer >map = new HashMap<>();
-
-
-    map.put("First", 1);
-    map.put("Second", 2);
-    map.put("Third", 3);
-
-for(String key : map.keySet()){
-
-
-    
-}
-
-
-
-return 1;
-}
-
+        for(int i = 0 ;  i  < n ; i ++ ){
+        
+        
+        
+            for(int  j = 0 ; j < n - i; j++){
+        
+        if(arr[i]<arr[j]){
+            swap(arr[i], arr[j]);
+        }
+        
+            }
+        }
+        
+        
+        
+        }
+        
+         void display(ArrayList<Integer>arr){
+        
+        
+           
+            for(int  j = 0 ; j < arr.size(); j++){
+        System.out.println(arr[i]);
+              
+                }
+         }
     public static void main(String[] args) {
-     System.out.println("hiii");
 
-  int [] arr = {1,2,3,4,5,6,7,8};
-  int key = 3;
-System.out.println(binarysearch());
+ArrayList<Integer> arr = {3,5,2,3,};
 
 
 
