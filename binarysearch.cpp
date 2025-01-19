@@ -21,12 +21,7 @@ if(arr[j]>arr[j+1]){
 }
 
 }
-void print(vector<int> &arr) {
-    for (auto i : arr) {
-        cout << i << " ";
-    }
-    cout << endl;
-}
+
 
 
 
@@ -120,7 +115,7 @@ void merge(vector<int>& arr, int s, int mid, int e) {
     }
 }
 
-// Merge sort function
+
 void mergeSort(vector<int>& arr, int s, int e) {
     if (s < e) {
         int mid = s + (e - s) / 2;
@@ -132,8 +127,8 @@ void mergeSort(vector<int>& arr, int s, int e) {
     }
 }
 
-// Print function
-void print(const vector<int>& arr) {
+
+void print(vector<int>& arr) {
     for (auto i : arr) {
         cout << i << " ";
     }
