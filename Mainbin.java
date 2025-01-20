@@ -1,3 +1,95 @@
+class Node {
+
+    
+    int data ;
+     Node next ;
+    
+    
+     Node(int d){
+    data = d ;
+    next = null;
+    
+    
+     }
+    
+    };
+    
+    
+    class LinkledList{
+
+    Node head;
+    
+
+    LinkledList(){
+    
+    
+     head = null;
+    
+    }
+    
+    
+    void insert(int data){
+    
+    Node newNode= new Node(data);
+    
+        if(head  == null){
+    
+    
+    
+    head = newNode;
+    
+    
+        }
+        else{
+    
+    Node  temp = head;
+    
+    while(temp.next != null){
+    
+    
+        temp = temp.next;
+    }
+    
+    temp.next = newNode;
+    
+    
+    
+        }
+    }
+    
+    void display(){
+    
+    
+        Node temp = head ;
+    
+    
+        while(temp.next != null){
+    
+    
+            System.out.print(temp.data +"->");
+    
+    
+            temp = temp.next;
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    };
+    
+    
+    
+
+
+
+
 class Mainbin{
 
 
@@ -169,24 +261,72 @@ Merge(arr , s ,mid, e);
 
 }
 
-public static void main(String args[]){
+public static void binarySearch(int []arr , int key, int s ,int e){
+
+int mid = s + (e -s )/2;
+
+if(s>=e){
+    
+    System.out.println("not found");
+    
+    return;
+
+}
+
+    if(arr[mid] == key){
+
+        System.out.println("element found");
+
+        return;
+    }
+else if(arr[mid] > key){
+
+
+binarySearch(arr, key, s, mid-1);
 
 
 
-int arr[] = {0,9,8,7};
+}else{
 
-int n = arr.length;
-
-mergeSort(arr, 0,n-1);
+    binarySearch(arr, key, mid, e);
 
 
 
-for(int i = 0 ; i< n ; i++){
-
-    System.out.println(arr[i]);
+    
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+public static void main(String args[]){
+
+
+LinkledList L = new LinkledList();
+
+L.insert(10);
+
+L.insert(20);
+L.insert(30);
+L.insert(40);
+L.insert(50);
+
+
+L.display();
 }
 
 

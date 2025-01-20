@@ -2,6 +2,7 @@
 using namespace std;
 
 
+
 void bubbleSort(vector<int>&arr , int n){
 
 
@@ -86,7 +87,6 @@ swap(arr[i], arr[minindex]);
 
 
 
-// Merge function
 void merge(vector<int>& arr, int s, int mid, int e) {
     int n1 = mid - s + 1;
     int n2 = e - mid;
@@ -128,12 +128,7 @@ void mergeSort(vector<int>& arr, int s, int e) {
 }
 
 
-void print(vector<int>& arr) {
-    for (auto i : arr) {
-        cout << i << " ";
-    }
-    cout << endl;
-}
+
 
 int main() {
     vector<int> arr = {9, 8, 7, 0};
