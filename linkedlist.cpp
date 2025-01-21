@@ -59,6 +59,41 @@ temp -> next = newNode;
     }
 }
 
+void insertAthead(int data){
+
+
+Node* newNode = new Node(data);
+
+
+newNode-> next = head;
+
+head = newNode;
+
+
+
+}
+
+
+void insertAtpos(int pos  , int data){
+
+Node * temp = head;
+
+
+
+while(pos != 0){
+
+
+
+temp = temp - >next;
+    pos--;
+}
+
+
+
+
+
+}
+
 void display(){
 
 
@@ -99,6 +134,9 @@ L.insert(20);
 L.insert(30);
 L.insert(40);
 L.insert(50);
+
+
+L.insertAtTail(100);
 
 
 L.display();
