@@ -18,102 +18,110 @@ next = nullptr;
 
 
 class LinkledList{
+
 private:
-Node* head;
+Node * head ;
+Node * Tail;
 
 public:
+
+
 LinkledList(){
 
 
- head = nullptr;
-
+    head = nullptr;
+    Tail = nullptr;
 }
 
 
 void insert(int data){
 
-Node * newNode= new Node(data);
-
-    if(head  == nullptr){
+Node * NewNode = new Node(data);
 
 
+if(head == nullptr){
 
-head = newNode;
-
-
-    }
-    else{
-
-Node* temp = head;
+    head = NewNode;
+}
+else{
+Node * temp = head;
 
 while(temp->next != nullptr){
-
 
     temp = temp->next;
 }
 
-temp -> next = newNode;
-
-
-
-    }
-}
-
-void insertAthead(int data){
-
-
-Node* newNode = new Node(data);
-
-
-newNode-> next = head;
-
-head = newNode;
-
-
-
-}
-
-
-void insertAtpos(int pos  , int data){
-
-Node * temp = head;
-
-
-
-while(pos != 0){
-
-
-
-temp = temp - >next;
-    pos--;
+temp->next = NewNode;
+Tail = NewNode;
 }
 
 
 
 
-
 }
+
 
 void display(){
+Node * temp = head ;
 
+while(temp !=  nullptr){
 
-    Node* temp = head ;
-
-
-    while(temp->next != nullptr){
-
-
-        cout<<temp->data<<" -> ";
-
-
+   
+ 
+     cout<<temp->data<<"-> ";
         temp = temp->next;
-    }
+}
+
+cout<<endl;
+
+
+}
+
+void insertAtpos(int pos , int data){
+
+Node * prev = head ;
+Node * prev1 = nullptr;
+while(pos != 1){
+prev1 = prev;
+
+prev = prev->next;
+
+
+pos--;
+
+
+}
+
+Node * NewNode = new Node(data);
+
+
+prev1->next = NewNode;
+NewNode->next = prev;
+
 }
 
 
+void deleteatpos(int pos){
+
+Node * prev = head ;
+Node * prev1 = nullptr;
+while(pos != 1){
+prev1 = prev;
+
+prev = prev->next;
 
 
+pos--;
 
+
+}
+
+Node * temp = prev;
+
+prev1->next = prev->next;
+
+delete temp;
+}
 
 
 
@@ -133,12 +141,10 @@ L.insert(10);
 L.insert(20);
 L.insert(30);
 L.insert(40);
-L.insert(50);
 
-
-L.insertAtTail(100);
 
 
 L.display();
-
+L.deleteatpos(3);
+L.display();
 }
